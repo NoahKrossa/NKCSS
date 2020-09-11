@@ -1,1 +1,36 @@
-/* BASE*/
+/* This is the wrapper of framekork, import here all sass files */
+
+/*  Content:
+  - Base.....................................Defaut styles and helpers
+    - mixins
+    - reset
+    - functions
+    - config
+    ...
+  - Elements......................Styles of individual elements styles
+    see more info abaut SMACSS
+    - buttons
+    - images
+    - icons
+    - contents
+    - tags
+    - tables
+    ...
+
+  - Components...............................The union of some elemetes
+    - cards
+    - menus 
+    - dropdowns
+    - modal
+    - breadcrumbs
+    ...
+  
+  - Layout......................................Structure of components
+    - responsive grid and columns
+    - section
+    - header
+    - footer
+*/
+
+// BASE
+@import './base/config';
