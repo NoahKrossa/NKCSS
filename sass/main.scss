@@ -34,3 +34,6 @@
 
 // BASE
 @import './base/config';
+  // mixins
+  @import './base/mixins/breakpoints.mixin';
+  @import './base/mixins/ratio-aspect.mixin';
