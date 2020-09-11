@@ -54,3 +54,13 @@ $color__grayscale: (
   g--8: #e9ecef, 
   g--9: #f8f9fa
 );
+//=======================================================
+
+
+/* @skin__list 
+ * Some elements hav same skins like buttons, tags, alerts, 
+ * this var help us to generate respective classes
+*/
+$skin__list: (default, success, warning, danger, dark)
+//=======================================================
+
