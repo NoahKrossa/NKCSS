@@ -1,65 +1,89 @@
-const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const {resolve} = require('path')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetPlugin = require('optimize-css-assets-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+
+const basePath = __dirname
 
 module.exports = (env, options) => {
-  
-  const isDevelopment = options.mode === 'development'
+  const isDevelopment = options.mode == 'development'
 
-  return {
-    entry:[ "./js/main.js", './sass/main.scss'],
+  const webpackConfig = {
+    resolve: {
+      extensions:  ['.js']
+    },
+
+    entry: {
+      nkCSS: [
+        '@babel/polyfill',
+        resolve(basePath, 'src', 'js', 'main.js')
+      ]
+    },
 
     output: {
-      filename: isDevelopment? '[name].js': '[name]-[hash].min.js',
-      chunkFilename: isDevelopment? '[id].js': '[id]-[hash].min.js',
-      path: path.resolve(__dirname, 'dist'),
+      path: resolve(basePath, 'dist'),
+      filename: isDevelopment? '[name].dev.js':'[chunkhash]-[name].min.js',
     },
 
     module: {
       rules: [
-        /* JS config */
+        /** babel config */
         {
+          test: /\.js$/,
           exclude: /node_modules/,
-          test: /\.m?js$/,
-          use: "babel-loader",
+          use: [
+            'babel-loader',
+            'eslint-loader'
+          ]
         },
 
+        /* CSS config */
         {
-          test: /\.scss$/,
+          test: /\.s[ac]ss$/,
           use: [
+            MiniCSSExtractPlugin.loader,
             {
-              loader: 'file-loader',
+              loader: 'css-loader',
               options: {
-                name: isDevelopment? 'css/[name].min.css': 'css/[name]-[hash].min.css',
+                sourceMap: true
               }
             },
-            {
-              loader: 'extract-loader'
-            },
-            {
-              loader: 'css-loader?-url'
-            },
-      
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: isDevelopment
-              }
-            }
+            'postcss-loader',
+            'sass-loader'
           ]
         }
-      ],
+      ]
     },
-    resolve: {
-      extensions: ['.js', '.jsx', '.sass'],
+    devServer: {
+      contentBase: resolve(basePath, 'dist'),
+      port: 9000,
+      open: true
     },
-    devtool:isDevelopment? 'source-map': 'inline-source-map',
-
     plugins: [
-      new CleanWebpackPlugin(),
-      new MiniCssExtractPlugin({
-        filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-        chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
-      })],
-  };
-};
+      new MiniCSSExtractPlugin({
+        filename: isDevelopment? '[name].dev.css': '[chunkhash]-name.min.css',
+      }),
+      new OptimizeCSSAssetPlugin({
+        cssProcessor: require('cssnano'), /* It's a CSS compressor */
+        cssProcessorPluginOptions: {
+          preset: [
+            'default', 
+            { 
+              discardComments: { 
+                removeAll: true 
+              } 
+            }
+          ],
+        },
+      }),
+      new HTMLWebpackPlugin({
+        template: resolve(basePath, 'src', 'index.html'),
+        filename: 'index.html'
+      })
+    ]
+  }
+  
+  
+  
+  return webpackConfig;
+}
