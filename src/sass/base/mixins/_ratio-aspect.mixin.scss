@@ -1,0 +1,35 @@
+/* base/_ratio-aspect.mixin.scss */
+
+/* 
+ * @params {list} [$ratio] Ratio that element need to mantain
+ * ratio 16:9 would to look like this: 
+ * .element { @include ratio-aspect(16:9) }
+ *
+ * <figure class="element">
+ *  <img src="path" class="content"></img>
+ * </figure>
+ *
+ * ! it is important which element must have a child with the 
+ *   content class, which is what will keep that aspect ratio
+*/
+@mixin ratio-aspect($ratio: 1 1) {
+  position: relative;
+
+  &::before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: percentage(nth($ratio,2)/ nth(ratio,1));
+  }
+
+  > .content {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
