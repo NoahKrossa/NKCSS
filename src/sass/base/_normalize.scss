@@ -1,0 +1,55 @@
+* {
+  &,
+  &::before,
+  &::after {
+    /* border width doesn't alter element width*/
+    box-sizing: border-box;
+    /* 
+     * same font-size for all elements default 16px = 1rem 
+    */ 
+    font-size: 1rem; 
+  }
+}
+
+/* reset display-role for old browsers*/
+header,
+section,
+aside,
+footer,
+article,
+details,
+hgroup,
+menu,
+nav,
+figcaption,
+figure {
+  display: block;
+}
+
+body {
+  /* remove default body margin*/
+  margin: 0;
+
+  line-height: 1;
+}
+
+/* Uniforme styles for inputs and buttons*/
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"], 
+input[type="text"], 
+input[type="email"], 
+input[type="password"],
+input[type="search"] {
+  border: .5px solid map-get($color__grayscale, g--6);
+  color: map-get($color__grayscale, g--2);
+  outline: none;
+  background-color: transparent;
+  font-size: small; /* then we create font-size vars in base/_config.scss */
+}
+
+/* Lists */
+ul,ol {
+  list-style: none;
+}
