@@ -57,6 +57,7 @@ module.exports = (env, options) => {
     devServer: {
       contentBase: resolve(basePath, 'dist'),
       port: 9000,
+      host: '192.168.1.118',
       open: true
     },
     plugins: [
