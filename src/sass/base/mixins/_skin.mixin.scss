@@ -1,0 +1,81 @@
+/* base/mixins/_skin.mixin.scss */
+
+
+/*  @mixin skin--light: generate light skin styles
+ * 
+ * @param $name: [default|info|success|warning|danger|dark|white]
+*/
+@mixin skin--light($name:default) {
+
+  @if ($name == warning) {
+    background-color: $color__yellow--light;
+    color: $color__yellow--dark;
+  }
+  @if ($name == success) {
+    background-color: $color__green--light;
+    color: $color__green--dark;
+  }
+  @if ($name == danger) {
+    background-color: $color__red--light;
+    color: $color__red--dark;
+  }
+  @if ($name == info) {
+    background-color: $color__blue--light;
+    color: $color__blue--dark;
+  }
+  @else {
+    background-color: $color__gray--light;
+    color: $color__gray;
+  }
+}
+
+
+/*  @mixin skin: generate skin styles (only change color, 
+ * background and/or border)
+ *
+ * @param $name: [default|info|success|warning|danger|dark|white]
+ * @param $light: boolean
+*/
+@mixin skin($name: default, $light: false) {
+  @if( $ligth ) {
+    @include skin--light($name);
+  } 
+  @else {
+    
+    @if ($name != default or $name != white or $name != warning) {
+          
+      color: $color__white;
+
+      @if ($name == info) {
+        background-color: $color__info;
+      }
+      @if ($name == success) {
+        background-color: $color__success;
+      }
+      @if ($name == danger) {
+        background-color: $color__danger;
+      }
+      @if ($name == dark) {
+        background-color: $color__dark;
+      }
+    }
+
+    @else {
+      
+      color: $color__gray;
+      
+      @if ($name == default) {
+        background-color: $color__gray--light;
+      }
+
+      @if ($name == white) {
+        background-color: $color__white;
+      }
+
+      @if ($name == warning) {
+        background-color: $color__warning;
+      }
+    }
+  }
+}
+
