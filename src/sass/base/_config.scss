@@ -61,6 +61,17 @@ $color__grayscale: (
  * Some elements hav same skins like buttons, tags, alerts, 
  * this var help us to generate respective classes
 */
-$skin__list: (default, success, warning, danger, dark)
+$skin__list: (default, success, warning, danger, dark);
 //=======================================================
 
+
+/* @font-size
+ * there are 7 sizes, $font__size--[1-7]
+ **/
+$font__size--1: 3rem;
+$font__size--2: 2.4rem;
+$font__size--3: 2rem;
+$font__size--4: 1.4rem;
+$font__size--5: 1.2rem;
+$font__size--6: 1rem;
+$font__size--7: .85rem;
