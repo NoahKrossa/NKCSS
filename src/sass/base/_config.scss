@@ -54,6 +54,34 @@ $color__grayscale: (
   g--8: #e9ecef, 
   g--9: #f8f9fa
 );
+
+/* Gray */
+$color__gray:        map-get($color__grayscale, g--4);
+$color__gray--dark:  map-get($color__grayscale, g--2);
+$color__gray--light: map-get($color__grayscale, g--7);
+
+/* Blue*/
+$color__blue:        #00B4EC;
+$color__blue--light: #E5F9FF;
+$color__blue--dark:  #006E90;
+
+$color__balck: black;
+$color__white: white;
+
+/* Red */
+$color__red:       #FF1725;
+$color__red--dark: #990009;
+$color__red--light: #FFE5E7;
+
+/* Green */
+$color__green:        #00D254;
+$color__green--light: #E5FFF0;
+$color__green:        #00752F;
+
+/* Yellow */
+$color__yellow: #FBC12B;
+$color__yellow--light: #FFF8E5;
+$color__yellow--dark: #664900;
 //=======================================================
 
 
