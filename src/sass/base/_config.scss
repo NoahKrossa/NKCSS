@@ -86,6 +86,16 @@ $color__info: $color__blue;
 $color__success: $color__green;
 $color__warning: $color__yellow;
 $color__danger: $color__red;
+
+$color__conceptual: (
+  default: $color__gray--light, 
+  success: $color__success, 
+  warning: $color__warning, 
+  danger: $color__danger, 
+  dark: $color__dark, 
+  info: $color__info, 
+  white: $color__white);
+
 //=======================================================
 
 /* @skin__list 
@@ -97,7 +107,7 @@ $color__danger: $color__red;
  * } 
 */
 
-$skin__list: (default, success, warning, danger, dark, info);
+$skin__list: (default, success, warning, danger, dark, info, white);
 //=======================================================
 
 /* @font-size
@@ -115,3 +125,7 @@ $font__size--7: 0.85rem;
 $font__sans: "Roboto";
 $font__mono: "RobotoMono";
 $font__serif: "RobotoSlab";
+
+/* @border-radius
+*/
+$border-radius: 4px;
