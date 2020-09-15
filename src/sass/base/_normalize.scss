@@ -8,6 +8,9 @@
      * same font-size for all elements default 16px = 1rem 
     */ 
     font-size: 1rem; 
+
+    /* restet base font-family*/
+    @extend %font__roboto--regular;
   }
 }
 
