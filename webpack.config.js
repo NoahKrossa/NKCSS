@@ -2,6 +2,7 @@ const {resolve} = require('path')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetPlugin = require('optimize-css-assets-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 const basePath = __dirname
 
@@ -75,6 +76,7 @@ module.exports = (env, options) => {
       open: true
     },
     plugins: [
+      new CleanWebpackPlugin(),
       new MiniCSSExtractPlugin({
         filename: isDevelopment? '[name].dev.css': '[chunkhash]-name.min.css',
       }),
