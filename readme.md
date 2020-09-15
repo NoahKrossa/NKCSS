@@ -1,5 +1,5 @@
 # NKCSS
-It's a CSS Framework created by SASS.
+It's a CSS Framework created in SASS.
 
 
 ## COMMANDS
