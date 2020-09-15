@@ -82,24 +82,6 @@ $font-robotoMono-map: (
   }
 }
 
-/** @RobotoMono
-*/
-$font-robotoMono-map: (
-  "400": (
-    (
-      url: "../fonts/RobotoMono/RobotoMono-Regular.ttf",
-      format: "truetype",
-    ),
-  ),
-  "700": (
-    (
-      url: "../fonts/Roboto/Roboto-Bold.ttf",
-      format: "truetype",
-    ),
-  )
-);
-
-
 
 /** @RobotoSlab
 */
@@ -130,7 +112,7 @@ $font-robotoSlab-map: (
   ),
 );
 @each $_weight, $value in $font-robotoSlab-map {
-  $font-name: $font__sans + "--" + $_weight;
+  $font-name: $font__serif + "--" + $_weight;
 
   @include font-face($font-name, $value);
 
