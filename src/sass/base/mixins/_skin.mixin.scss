@@ -37,7 +37,7 @@
  * @param $light: boolean
 */
 @mixin skin($name: default, $light: false) {
-  @if( $ligth ) {
+  @if( $light ) {
     @include skin--light($name);
   } 
   @else {
