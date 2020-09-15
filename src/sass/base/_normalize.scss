@@ -36,22 +36,6 @@ body {
   line-height: 1;
 }
 
-/* Uniforme styles for inputs and buttons*/
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"], 
-input[type="text"], 
-input[type="email"], 
-input[type="password"],
-input[type="search"] {
-  border: .5px solid map-get($color__grayscale, g--6);
-  color: map-get($color__grayscale, g--2);
-  outline: none;
-  background-color: transparent;
-  font-size: small; /* then we create font-size vars in base/_config.scss */
-}
-
 /* Lists */
 ul,ol {
   list-style: none;
