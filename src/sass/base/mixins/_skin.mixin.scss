@@ -42,8 +42,10 @@
   } 
   @else {
     
-    @if ($name != default or $name != white or $name != warning) {
-          
+    @if $name != default and 
+        $name != white and
+        $name != warning {
+
       color: $color__white;
 
       @if ($name == info) {
@@ -58,21 +60,20 @@
       @if ($name == dark) {
         background-color: $color__dark;
       }
-    }
 
-    @else {
+    } @else {
       
       color: $color__gray;
       
-      @if ($name == default) {
+      @if $name == default {
         background-color: $color__gray--light;
       }
 
-      @if ($name == white) {
+      @if $name == white{
         background-color: $color__white;
       }
 
-      @if ($name == warning) {
+      @if $name == warning{
         background-color: $color__warning;
       }
     }
