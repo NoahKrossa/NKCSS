@@ -1,0 +1,145 @@
+/* base/_fonts-scss*/
+
+/* Import here all font files, separate it by types and font-family
+*/
+
+/** @Roboto
+*/
+$font-roboto: (
+  regular: (
+    (
+      url: "../fonts/Roboto/Roboto-Regular.ttf",
+      format: "truetype",
+    ),
+  ),
+  bold: (
+    (
+      url: "../fonts/Roboto/Roboto-Bold.ttf",
+      format: "truetype",
+    ),
+  ),
+  medium: (
+    (
+      url: "../fonts/Roboto/Roboto-Medium.ttf",
+      format: "truetype",
+    ),
+  ),
+  black: (
+    (
+      url: "../fonts/Roboto/Roboto-Black.ttf",
+      format: "truetype",
+    ),
+  ),
+);
+
+@each $weight, $value in $font-roboto {
+  $font-name: $font__sans + "--" + $weight;
+
+  @include font-face($font-name, $value);
+  /* Generate extends by following format:
+   * %font__roboto--[i?][$weight] ([i] represent italic)
+   * for each embeded font create a extension normal and italic
+  */
+  %font__roboto--#{$weight},
+  %font__roboto--i#{$weight} {
+    font-family: $font-name;
+    font-weight: $weight;
+  }
+  %font__roboto--i#{$weight} {
+    font-style: italic;
+  }
+}
+
+/** @RobotoMono
+*/
+$font-robotoMono: (
+  regular: (
+    (
+      url: "../fonts/RobotoMono/RobotoMono-Regular.ttf",
+      format: "truetype",
+    ),
+  ),
+  bold: (
+    (
+      url: "../fonts/Roboto/Roboto-Bold.ttf",
+      format: "truetype",
+    ),
+  )
+);
+
+@each $weight, $value in $font-robotoMono {
+  $font-name: $font__mono + "--" + $weight;
+
+  @include font-face($font-name, $value);
+
+  %font__robotoMono--#{$weight},
+  %font__robotoMono--i#{$weight} {
+    font-family: $font-name;
+    font-weight: $weight;
+  }
+  %font__robotoMono--i#{$weight} {
+    font-style: italic;
+  }
+}
+
+/** @RobotoMono
+*/
+$font-robotoMono: (
+  regular: (
+    (
+      url: "../fonts/RobotoMono/RobotoMono-Regular.ttf",
+      format: "truetype",
+    ),
+  ),
+  bold: (
+    (
+      url: "../fonts/Roboto/Roboto-Bold.ttf",
+      format: "truetype",
+    ),
+  )
+);
+
+
+
+/** @RobotoSlab
+*/
+$font-robotoSlab: (
+  regular: (
+    (
+      url: "../fonts/RobotoSlab/RobotoSlab-Regular.ttf",
+      format: "truetype",
+    ),
+  ),
+  bold: (
+    (
+      url: "../fonts/RobotoSlab/RobotoSlab-Bold.ttf",
+      format: "truetype",
+    ),
+  ),
+  medium: (
+    (
+      url: "../fonts/RobotoSlab/RobotoSlab-Medium.ttf",
+      format: "truetype",
+    ),
+  ),
+  black: (
+    (
+      url: "../fonts/RobotoSlab/RobotoSlab-Black.ttf",
+      format: "truetype",
+    ),
+  ),
+);
+@each $weight, $value in $font-robotoSlab {
+  $font-name: $font__sans + "--" + $weight;
+
+  @include font-face($font-name, $value);
+
+  %font__robotoSlab--#{$weight},
+  %font__robotoSlab--i#{$weight} {
+    font-family: $font-name;
+    font-weight: $weight;
+  }
+  %font__robotoSlab--i#{$weight} {
+    font-style: italic;
+  }
+}
