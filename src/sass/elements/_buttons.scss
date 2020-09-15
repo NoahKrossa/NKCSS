@@ -1,0 +1,46 @@
+/* elements/_button.scss*/
+
+/* Base styles of botton*/
+.button {
+  font-size: $font__size--6;
+  background-color: transparent;
+  outline: none;
+  padding: .5em 1em;
+  border: .5px solid $color__gray--light;
+  color: $color__gray--dark;
+  cursor: pointer;
+  border-radius: $border-radius;
+  &:hover {
+    border-color: map-get($color__grayscale, g--5 );
+  }
+
+  &:focus,&:active {
+    position: relative;
+    z-index: 100;
+    border-color: $color__gray;
+    box-shadow:0 0 0 2px $color__blue--light;
+  }
+} 
+
+/* Generate bottons skins 
+ * Usage:
+ * <button class="button button--success">Button<button>
+ * <button class="button button--info">Button<button>
+ * <button class="button button--danger">Button<button>
+ * <button class="button button--dark">Button<button>
+ * ...
+*/
+@each $skin in $skin__list {
+  .button--#{$skin} {
+    border: none;
+    @include skin($skin);
+
+    &:hover {
+      background-color: darken(map-get($color__conceptual, $skin), 5);
+    }
+    &:active,
+    &:focus {
+      box-shadow:0 0 0 2px lighten(map-get($color__conceptual, $skin), 20);
+    }
+  }
+}
