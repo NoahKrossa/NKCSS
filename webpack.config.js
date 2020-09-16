@@ -1,29 +1,26 @@
-const {resolve} = require('path')
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetPlugin = require('optimize-css-assets-webpack-plugin')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const { resolve } = require("path");
+const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetPlugin = require("optimize-css-assets-webpack-plugin");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-const basePath = __dirname
+const basePath = __dirname;
 
 module.exports = (env, options) => {
-  const isDevelopment = options.mode == 'development'
+  const isDevelopment = options.mode == "development";
 
   const webpackConfig = {
     resolve: {
-      extensions:  ['.js']
+      extensions: [".js"],
     },
-
+    stats: "none",
     entry: {
-      nkCSS: [
-        '@babel/polyfill',
-        resolve(basePath, 'src', 'js', 'main.js')
-      ]
+      nkCSS: ["@babel/polyfill", resolve(basePath, "src", "js", "main.js")],
     },
 
     output: {
-      path: resolve(basePath, 'dist'),
-      filename: isDevelopment? '[name].dev.js':'[chunkhash]-[name].min.js',
+      path: resolve(basePath, "dist"),
+      filename: isDevelopment ? "[name].dev.js" : "[chunkhash]-[name].min.js",
     },
 
     module: {
@@ -32,10 +29,7 @@ module.exports = (env, options) => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: [
-            'babel-loader',
-            'eslint-loader'
-          ]
+          use: ["babel-loader", "eslint-loader"],
         },
 
         /* CSS config */
@@ -44,63 +38,64 @@ module.exports = (env, options) => {
           use: [
             MiniCSSExtractPlugin.loader,
             {
-              loader: 'css-loader',
+              loader: "css-loader",
               options: {
-                sourceMap: true
-              }
+                sourceMap: true,
+              },
             },
-            'postcss-loader',
-            'sass-loader'
-          ]
+            "postcss-loader",
+            "sass-loader",
+          ],
         },
-        
+
         // Fonts config
         {
           test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
           use: [
             {
-              loader: 'file-loader',
+              loader: "file-loader",
               options: {
-                name: '[name].[ext]',
-                outputPath: 'fonts/'
-              }
-            }
-          ]
-        }
-      ]
+                name: "[name].[ext]",
+                outputPath: "fonts/",
+              },
+            },
+          ],
+        },
+      ],
     },
     devServer: {
-      contentBase: resolve(basePath, 'dist'),
+      contentBase: resolve(basePath, "dist"),
       port: 9000,
-      host: '192.168.1.118',
-      open: true
+      host: "192.168.1.118",
+      open: true,
     },
     plugins: [
       new CleanWebpackPlugin(),
       new MiniCSSExtractPlugin({
-        filename: isDevelopment? '[name].dev.css': '[chunkhash]-name.min.css',
+        filename: isDevelopment ? "[name].dev.css" : "[chunkhash]-name.min.css",
       }),
       new OptimizeCSSAssetPlugin({
-        cssProcessor: require('cssnano'), /* It's a CSS compressor */
+        cssProcessor: require("cssnano") /* It's a CSS compressor */,
         cssProcessorPluginOptions: {
           preset: [
-            'default', 
-            { 
-              discardComments: { 
-                removeAll: true 
-              } 
-            }
+            "default",
+            {
+              discardComments: {
+                removeAll: true,
+              },
+            },
           ],
         },
       }),
       new HTMLWebpackPlugin({
-        template: resolve(basePath, 'src', 'index.html'),
-        filename: 'index.html'
-      })
-    ]
-  }
-  
-  
-  
+        template: resolve(basePath, "src", "index.html"),
+        filename: "index.html",
+      }),
+    ],
+  };
+
   return webpackConfig;
-}
+};
+
+
+/** Personalize webpack logs*/
