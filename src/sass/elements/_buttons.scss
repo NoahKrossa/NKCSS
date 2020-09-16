@@ -2,11 +2,11 @@
 
 /* Base styles of botton*/
 .button {
-  font-size: $font__size--6;
+  font-size: $button__font-size;
   background-color: transparent;
   outline: none;
-  padding: .5em 1em;
-  border: .5px solid $color__gray--light;
+  padding:$button__padding;
+  border:$button__border;
   color: $color__gray--dark;
   cursor: pointer;
   border-radius: $border-radius;

@@ -125,7 +125,22 @@ $font__size--7: 0.85rem;
 $font__sans: "Roboto";
 $font__mono: "RobotoMono";
 $font__serif: "RobotoSlab";
+//==================================================
 
 /* @border-radius
 */
 $border-radius: 4px;
+//==================================================
+
+/* @Buttons 
+*/
+$button__border: .5px solid $color__gray--light;
+$button__font-size: $font__size--6;
+$button__padding:  $unit *5 $unit *8;
+//==================================================
+
+// /* @tag
+// */
+// $tag__border: .5px solid $color__gray--light;
+// $tag__font-size: $font__size--6;
+// $tag__padding: $unit *4;
