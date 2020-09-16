@@ -44,3 +44,19 @@
     }
   }
 }
+
+
+/* STATES */
+.button[disabled],
+.button[data-disabled] {
+  cursor: no-drop;
+  &:hover,
+  &:active,
+  &:focus,
+  & {
+    background-color: $color__gray--light;
+    box-shadow: none;
+    color:map-get($color__grayscale, g--5 );
+    border: none;
+  }
+}
