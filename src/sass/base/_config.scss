@@ -55,7 +55,7 @@ $color__grayscale: (
 /* Gray */
 $color__gray: map-get($color__grayscale, g--4);
 $color__gray--dark: map-get($color__grayscale, g--2);
-$color__gray--light: map-get($color__grayscale, g--7);
+$color__gray--light: map-get($color__grayscale, g--8);
 
 /* Blue*/
 $color__blue: #00b4ec;
@@ -139,8 +139,8 @@ $button__font-size: $font__size--6;
 $button__padding:  $unit *5 $unit *8;
 //==================================================
 
-// /* @tag
-// */
-// $tag__border: .5px solid $color__gray--light;
-// $tag__font-size: $font__size--6;
-// $tag__padding: $unit *4;
+/* @tag
+*/
+$tag__font-size: $font__size--7;
+$tag__padding: $unit *4 $unit*7;
+$tag__background: map-get($color__grayscale, g--9 );
