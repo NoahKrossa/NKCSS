@@ -45,6 +45,10 @@
   }
 }
 
+/* Button addone*/
+@include addone("button--addone", "button");
+
+
 
 /* STATES */
 .button[disabled],

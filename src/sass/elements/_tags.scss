@@ -1,6 +1,6 @@
 /* elements/_tags.scss*/
 
-/* Base taf*/
+/* Base tag*/
 .tag {
   font-size: $tag__font-size;
   color: $color__gray--dark;
@@ -15,3 +15,15 @@
     @include skin($skin);
   }
 }
+
+/* Tag group*/
+.tag-group {
+  >.tag {
+
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+}
+
+/* Create addone for tags*/
+@include addone("tag--addone", "tag");
