@@ -88,13 +88,13 @@ $color__warning: $color__yellow;
 $color__danger: $color__red;
 
 $color__conceptual: (
-  default: $color__gray--light, 
-  success: $color__success, 
-  warning: $color__warning, 
-  danger: $color__danger, 
-  dark: $color__dark, 
-  info: $color__info, 
-  white: $color__white);
+  "default": $color__gray--light, 
+  "success": $color__success, 
+  "warning": $color__warning, 
+  "danger": $color__danger, 
+  "dark": $color__dark, 
+  "info": $color__info, 
+  "white": $color__white);
 
 //=======================================================
 
