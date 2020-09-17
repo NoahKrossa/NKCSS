@@ -1,0 +1,19 @@
+/* base/mixins/_addone.mixin.scss*/
+
+@mixin addone($containerClassName, $elementClassName) {
+  .#{$containerClassName} {
+    
+    &>.#{$elementClassName} {
+      border-radius: 0;
+      display: inline-block;
+      margin-right: -4px;
+
+      &:last-child {
+        border-radius: 0 $border-radius $border-radius 0 ;
+      }
+      &:first-child {
+        border-radius: $border-radius 0 0 $border-radius ;
+      }
+    }
+  }
+}
