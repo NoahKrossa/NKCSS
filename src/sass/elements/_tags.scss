@@ -1,6 +1,17 @@
+/* elements/_tags.scss*/
+
+/* Base taf*/
 .tag {
   font-size: $tag__font-size;
   color: $color__gray--dark;
   padding: $tag__padding;
   background-color: $tag__background;
+  border-radius: $border-radius;
+}
+
+/* Generate tag skins */
+@each $skin in $skin__list {
+  .tag--#{$skin} {
+    @include skin($skin);
+  }
 }
