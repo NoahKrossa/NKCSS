@@ -1,0 +1,75 @@
+.menu {
+  margin: 1em; // Just for layout
+  outline: 1px solid red; // Just for layout
+  padding: $unit * 10 0;
+}
+
+.submenu {
+  padding: 0;
+  border-left: 0.5px solid map-get($color__grayscale, g--5);
+  margin-left: $unit * 20;
+}
+
+.menu__label {
+  margin: 0;
+  padding: $unit * 5;
+  text-transform: uppercase;
+  font-size: $font__size--7;
+  color: $color__gray;
+}
+
+.menu__item,
+.submenu__item {
+  margin-left: $unit * 5;
+}
+
+.menu__link,
+.submenu__link {
+  display: block;
+  text-decoration: none;
+  color: $color__gray--dark;
+
+  /* State */
+  &:hover {
+    background-color: $color__gray--light;
+  }
+  &.is-actived {
+    background-color: $color__blue;
+    color: $color__white;
+  }
+}
+
+.menu__link {
+  padding: $unit * 8 $unit * 10;
+}
+.submenu__link {
+  font-size: $font__size--7;
+  padding: $unit * 6 $unit * 8;
+}
+
+/* EXAMPE OF MENU
+
+ * <ul class="menu">
+ *  <p class="menu__label">general</p>
+ *  <li class="menu__item"><a class="menu__link" href="#">Project</a></li>
+ *  <li class="menu__item"><a class="menu__link" href="#">Testing</a></li>
+ *  <li class="menu__item"><a class="menu__link" href="#">Blog</a></li>
+ *  <p class="menu__label">about me</p>
+ *  <li class="menu__item"><a href="#" class="menu__link">Briefcase</a></li>
+ *  <li class="menu__item"><a href="#" class="menu__link is-actived">Curriculum</a></li>
+ *  <p class="menu__label">courses</p>
+ *  <li class="menu__item"><a href="#" class="menu__link">Javascript</a></li>
+ *  <li class="menu__item"><a href="#" class="menu__link">Marketing</a></li>
+ *  <li class="menu__item">
+ *    <a href="#" class="menu__link">Design</a>
+ *    <ul class="submenu">
+ *      <li class="submenu__item">
+ *        <a href="#" class="submenu__link">Logo design</a>
+ *      </li>
+ *      <li class="submenu__item">
+ *        <a href="#" class="submenu__link">Web design</a>
+ *      </li>
+ *    </ul>
+ *  </li>
+ * </ul>
+*/
