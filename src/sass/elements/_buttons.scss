@@ -46,6 +46,15 @@
 }
 
 /* Button addone*/
+/* Usage example
+ *<div class="button--addone button--group">
+ *  <button class="button button--success ">Button</button>
+ *  <button class="button button-- ">Button</button>
+ *  <button class="button button--info ">Button</button>
+ *  <button class="button button--danger ">Button</button>
+ *  <button class="button button--dark">Button</button>
+ *</div>
+*/
 @include addone("button--addone", "button");
 
 

@@ -23,7 +23,15 @@
     display: inline-block;
     margin-bottom: 5px;
   }
+  
 }
 
 /* Create addone for tags*/
+/* Usage example:
+ * <div class="tag-group tag--addone">
+ *  <span class="tag tag--dark">notification</span>
+ *  <span class="tag tag--info">tag name</span>
+ *  <span class="tag tag--dark">tag name</span>
+ * </div>
+*/
 @include addone("tag--addone", "tag");
