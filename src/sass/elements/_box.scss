@@ -1,0 +1,10 @@
+/* elements/_box.scss */
+
+/* Box it's a container delimited with a border
+ * can containe: media object, tweets, notes...etc
+*/
+.box {
+  border-radius: $border-radius;
+  padding: $box__padding;
+  border: $box__border;
+}

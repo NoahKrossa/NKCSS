@@ -144,3 +144,9 @@ $button__padding:  $unit *5 $unit *8;
 $tag__font-size: $font__size--7;
 $tag__padding: $unit *4 $unit*7;
 $tag__background: map-get($color__grayscale, g--9 );
+//==================================================
+
+/* @box
+*/
+$box__border: .5px solid $color__gray--light;
+$box__padding: $unit * 8;
